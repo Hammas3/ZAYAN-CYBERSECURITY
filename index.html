@@ -1,0 +1,2330 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zayan Cybersecurity | Cybersecurity Professional Portfolio</title>
+    <meta name="description" content="Personal cybersecurity portfolio of Zayan Cybersecurity. Focused on web security, vulnerability assessment, network security, and secure development practices in Karachi, Pakistan.">
+    <meta name="keywords" content="Zayan Cybersecurity, Cybersecurity Karachi, Web Security, Vulnerability Assessment, Network Security, Secure Development, Pakistan">
+    <meta name="author" content="Zayan Cybersecurity">
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Zayan Cybersecurity | Professional Portfolio">
+    <meta property="og:description" content="Secure Systems. Smarter Security. Cybersecurity portfolio based in Karachi, Pakistan.">
+    <meta property="og:type" content="website">
+
+    <!-- Inline SVG Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300ff88'><path d='M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8s0 0 0 0z'/></svg>">
+
+    <style>
+        /* ==========================================
+           1. CSS VARIABLES & BASE STYLES
+           ========================================== */
+        :root {
+            --bg-dark: #07090e;
+            --bg-card: rgba(13, 18, 28, 0.75);
+            --bg-card-border: rgba(0, 240, 255, 0.15);
+            --bg-card-hover: rgba(18, 26, 41, 0.9);
+            
+            --electric-green: #00ff88;
+            --cyan-accent: #00f0ff;
+            --blue-glow: #0077ff;
+            --alert-amber: #ffb703;
+            --alert-red: #ff4757;
+            
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --text-heading: #ffffff;
+            
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-mono: "Fira Code", "Courier New", Courier, monospace;
+            
+            --transition-fast: 0.25s ease;
+            --transition-normal: 0.4s ease;
+            --container-width: 1200px;
+        }
+
+        /* Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Grid Background Effect */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Scanline Overlay */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 4px;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        /* Typography & Utility */
+        h1, h2, h3, h4 {
+            color: var(--text-heading);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            color: var(--cyan-accent);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        a:hover {
+            color: var(--electric-green);
+        }
+
+        .mono {
+            font-family: var(--font-mono);
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-padding {
+            padding: 6rem 0;
+        }
+
+        /* Section Title Styling */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            font-family: var(--font-mono);
+            color: var(--electric-green);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan-accent), var(--electric-green));
+            border-radius: 2px;
+        }
+
+        /* Glassmorphism Card Style */
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--bg-card-border);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 255, 136, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.15);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            border: 1px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.2), rgba(0, 240, 255, 0.2));
+            color: var(--electric-green);
+            border-color: var(--electric-green);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.15);
+        }
+
+        .btn-primary:hover {
+            background: var(--electric-green);
+            color: #000;
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--cyan-accent);
+            border-color: var(--cyan-accent);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 240, 255, 0.1);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+        }
+
+        /* Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==========================================
+           2. NAVBAR
+           ========================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.25rem 0;
+            transition: var(--transition-fast);
+            background: rgba(7, 9, 14, 0.6);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .navbar.scrolled {
+            padding: 0.85rem 0;
+            background: rgba(7, 9, 14, 0.95);
+            border-bottom: 1px solid var(--bg-card-border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+            font-family: var(--font-mono);
+            font-weight: 700;
+        }
+
+        .logo-main {
+            font-size: 1.2rem;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+
+        .logo-sub {
+            font-size: 0.65rem;
+            color: var(--electric-green);
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-main);
+            position: relative;
+            padding: 0.25rem 0;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--electric-green);
+            transition: var(--transition-fast);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--electric-green);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 30px;
+            height: 24px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--cyan-accent);
+            position: absolute;
+            transition: var(--transition-fast);
+        }
+
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 11px; }
+        .hamburger span:nth-child(3) { top: 22px; }
+
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg); top: 11px; }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg); top: 11px; }
+
+        /* ==========================================
+           3. HERO SECTION
+           ========================================== */
+        .hero {
+            min-height: 100vh;
+            padding-top: 8rem;
+            padding-bottom: 4rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-headline {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-headline span {
+            background: linear-gradient(135deg, var(--cyan-accent), var(--electric-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+        }
+
+        .hero-subtext {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Terminal Component */
+        .terminal-window {
+            background: rgba(10, 14, 23, 0.95);
+            border: 1px solid var(--bg-card-border);
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 20px rgba(0, 240, 255, 0.1);
+            overflow: hidden;
+            font-family: var(--font-mono);
+        }
+
+        .terminal-header {
+            background: rgba(20, 28, 45, 0.8);
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background-color: #ff5f56; }
+        .dot-yellow { background-color: #ffbd2e; }
+        .dot-green { background-color: #27c93f; }
+
+        .terminal-title {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .terminal-body {
+            padding: 1.5rem;
+            min-height: 220px;
+            color: var(--electric-green);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 15px;
+            background: var(--electric-green);
+            margin-left: 4px;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* ==========================================
+           4. ABOUT SECTION
+           ========================================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.25rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .highlight-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 2px solid var(--cyan-accent);
+            padding: 0.75rem 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-main);
+        }
+
+        /* ==========================================
+           5. SKILLS SECTION
+           ========================================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            color: var(--cyan-accent);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .skill-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-mono);
+        }
+
+        /* ==========================================
+           6. SERVICES / AREAS SECTION
+           ========================================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            position: relative;
+        }
+
+        .service-card h3 {
+            color: var(--electric-green);
+            margin-bottom: 0.75rem;
+            font-size: 1.15rem;
+        }
+
+        /* ==========================================
+           7. PROCESS SECTION
+           ========================================== */
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            position: relative;
+        }
+
+        .process-node {
+            text-align: center;
+            position: relative;
+        }
+
+        .node-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-dark);
+            border: 2px solid var(--cyan-accent);
+            color: var(--cyan-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            margin: 0 auto 1.25rem auto;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+            transition: var(--transition-fast);
+        }
+
+        .process-node:hover .node-number {
+            border-color: var(--electric-green);
+            color: var(--electric-green);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+        }
+
+        .process-node h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-mono);
+        }
+
+        /* ==========================================
+           8. INTERACTIVE THREAT LAB
+           ========================================== */
+        .threat-lab-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+        }
+
+        .threat-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .threat-btn {
+            background: rgba(13, 18, 28, 0.6);
+            border: 1px solid var(--bg-card-border);
+            color: var(--text-main);
+            padding: 1rem;
+            text-align: left;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            transition: var(--transition-fast);
+        }
+
+        .threat-btn:hover,
+        .threat-btn.active {
+            background: rgba(0, 240, 255, 0.1);
+            border-color: var(--cyan-accent);
+            color: #fff;
+        }
+
+        .threat-btn.active {
+            border-left: 4px solid var(--electric-green);
+        }
+
+        .threat-display {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .threat-tag {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: rgba(255, 71, 87, 0.15);
+            color: var(--alert-red);
+            border: 1px solid var(--alert-red);
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .threat-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+
+        .threat-box h4 {
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+            color: var(--cyan-accent);
+            margin-bottom: 0.25rem;
+        }
+
+        /* ==========================================
+           9. SECURITY CHECKLIST
+           ========================================== */
+        .checklist-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .checklist-progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            border: 1px solid var(--bg-card-border);
+        }
+
+        .checklist-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--cyan-accent), var(--electric-green));
+            transition: width 0.4s ease;
+        }
+
+        .checklist-status {
+            font-family: var(--font-mono);
+            text-align: right;
+            margin-bottom: 1rem;
+            color: var(--electric-green);
+        }
+
+        .checklist-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .checklist-item {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-card-border);
+            padding: 1rem 1.25rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            user-select: none;
+            transition: var(--transition-fast);
+        }
+
+        .checklist-item:hover {
+            border-color: rgba(0, 240, 255, 0.3);
+        }
+
+        .checklist-item input[type="checkbox"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--cyan-accent);
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            background: transparent;
+        }
+
+        .checklist-item input[type="checkbox"]:checked {
+            background: var(--electric-green);
+            border-color: var(--electric-green);
+        }
+
+        .checklist-item input[type="checkbox"]:checked::after {
+            content: "✓";
+            position: absolute;
+            color: #000;
+            font-weight: bold;
+            font-size: 14px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* ==========================================
+           10. PROJECTS SECTION
+           ========================================== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--electric-green);
+            background: rgba(0, 255, 136, 0.1);
+            padding: 0.2rem 0.5rem;
+            border: 1px solid var(--electric-green);
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+        }
+
+        /* ==========================================
+           11. TERMINAL SECTION
+           ========================================== */
+        .interactive-terminal {
+            background: #05070a;
+            border: 1px solid var(--bg-card-border);
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .terminal-actions {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: rgba(15, 23, 42, 0.6);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            flex-wrap: wrap;
+        }
+
+        .cmd-btn {
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid var(--cyan-accent);
+            color: var(--cyan-accent);
+            padding: 0.35rem 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .cmd-btn:hover {
+            background: var(--cyan-accent);
+            color: #000;
+        }
+
+        .cmd-btn.reset {
+            border-color: var(--alert-red);
+            color: var(--alert-red);
+            margin-left: auto;
+        }
+
+        .cmd-btn.reset:hover {
+            background: var(--alert-red);
+            color: #fff;
+        }
+
+        .terminal-console {
+            padding: 1.5rem;
+            height: 300px;
+            overflow-y: auto;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .console-line {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .console-prompt {
+            color: var(--cyan-accent);
+        }
+
+        .console-output {
+            color: var(--text-muted);
+            padding-left: 1rem;
+            border-left: 2px solid rgba(0, 255, 136, 0.3);
+            margin-top: 0.25rem;
+        }
+
+        /* ==========================================
+           12. KNOWLEDGE & CIA TRIAD
+           ========================================== */
+        .knowledge-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .cia-triad {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto;
+        }
+
+        .cia-triangle {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.2));
+        }
+
+        .cia-node {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--cyan-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-weight: bold;
+            font-size: 0.85rem;
+            color: #fff;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+
+        .node-c { top: 0; left: 50%; transform: translateX(-50%); border-color: var(--electric-green); }
+        .node-i { bottom: 0; left: 0; border-color: var(--cyan-accent); }
+        .node-a { bottom: 0; right: 0; border-color: var(--blue-glow); }
+
+        .knowledge-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .k-card {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-card-border);
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .k-header {
+            padding: 1rem;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-heading);
+        }
+
+        .k-body {
+            padding: 0 1rem 1rem 1rem;
+            display: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .k-card.open .k-body {
+            display: block;
+        }
+
+        .k-card.open .k-header {
+            color: var(--electric-green);
+        }
+
+        /* ==========================================
+           13. GALLERY
+           ========================================== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 220px;
+            cursor: pointer;
+            border: 1px solid var(--bg-card-border);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-normal);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(7, 9, 14, 0.9), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+            opacity: 0;
+            transition: var(--transition-fast);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-title {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--electric-green);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 4px;
+            border: 1px solid var(--cyan-accent);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+        }
+
+        .lightbox-btn {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 1.5rem;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+        }
+
+        .lightbox-btn:hover {
+            background: var(--cyan-accent);
+            color: #000;
+        }
+
+        .lightbox-close { top: 20px; right: 20px; }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+
+        /* ==========================================
+           14. FAQ SECTION
+           ========================================== */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-card-border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 1.25rem;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: var(--font-sans);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-icon {
+            font-family: var(--font-mono);
+            color: var(--cyan-accent);
+            transition: var(--transition-fast);
+        }
+
+        .faq-answer {
+            padding: 0 1.25rem 1.25rem 1.25rem;
+            display: none;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            margin-top: -0.25rem;
+            padding-top: 1rem;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            color: var(--electric-green);
+        }
+
+        /* ==========================================
+           15. CONTACT & FORM
+           ========================================== */
+        .contact-cta {
+            background: linear-gradient(135deg, rgba(13, 18, 28, 0.9), rgba(7, 9, 14, 0.95));
+            border: 1px solid var(--cyan-accent);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+        }
+
+        .contact-info-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-group h4 {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--cyan-accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group label {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-main);
+        }
+
+        .form-control {
+            background: rgba(5, 7, 10, 0.8);
+            border: 1px solid var(--bg-card-border);
+            border-radius: 4px;
+            padding: 0.8rem 1rem;
+            color: #fff;
+            font-family: var(--font-sans);
+            outline: none;
+            transition: var(--transition-fast);
+        }
+
+        .form-control:focus {
+            border-color: var(--electric-green);
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-message {
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            display: none;
+        }
+
+        .form-message.success {
+            display: block;
+            background: rgba(0, 255, 136, 0.15);
+            border: 1px solid var(--electric-green);
+            color: var(--electric-green);
+        }
+
+        /* ==========================================
+           16. FOOTER
+           ========================================== */
+        .footer {
+            background: #030406;
+            border-top: 1px solid var(--bg-card-border);
+            padding: 4rem 0 2rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--cyan-accent);
+            margin-bottom: 1.25rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--electric-green);
+        }
+
+        .footer-cta-box {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 2rem;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: var(--bg-card);
+            border: 1px solid var(--cyan-accent);
+            color: var(--cyan-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-fast);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--cyan-accent);
+            color: #000;
+        }
+
+        /* ==========================================
+           17. RESPONSIVE DESIGN
+           ========================================== */
+        @media (max-width: 992px) {
+            .hero-grid,
+            .about-grid,
+            .threat-lab-grid,
+            .knowledge-container,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-headline {
+                font-size: 2.75rem;
+            }
+
+            .process-timeline {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .process-timeline::before {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(7, 9, 14, 0.98);
+                border-left: 1px solid var(--bg-card-border);
+                flex-direction: column;
+                justify-content: center;
+                gap: 1.5rem;
+                transition: var(--transition-normal);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .checklist-items {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-headline {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-main">ZAYAN</span>
+                <span class="logo-sub">CYBERSECURITY</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#lab" class="nav-link">Security Lab</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-content reveal">
+                <h1 class="hero-headline">
+                    Secure Systems.
+                    <span>Smarter Security.</span>
+                </h1>
+                <p class="hero-subtext">
+                    Cybersecurity-focused professional interested in protecting digital environments, understanding security risks and building stronger security practices.
+                </p>
+                <div class="hero-cta">
+                    <a href="#about" class="btn btn-primary">Explore Profile</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Zayan</a>
+                </div>
+            </div>
+            
+            <div class="hero-terminal reveal">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <span class="terminal-title">bash - security_profile.sh</span>
+                    </div>
+                    <div class="terminal-body" id="hero-terminal-text">
+                        <!-- Dynamic terminal output -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Profile Overview</span>
+                <h2 class="section-title">About Zayan</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>
+                        Zayan Cybersecurity represents a dedicated approach to modern cybersecurity concepts, risk evaluation, and defensive strategy implementation. Based out of Karachi, Pakistan, the focus centers on understanding emerging digital threats and promoting security-first methodologies across applications and networks.
+                    </p>
+                    <p>
+                        By combining analytical problem-solving with core cybersecurity fundamentals, Zayan works toward analyzing system vulnerabilities, advocating defensive configurations, and ensuring data integrity across web and corporate environments.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">[✓] Cybersecurity</div>
+                        <div class="highlight-item">[✓] Network Security</div>
+                        <div class="highlight-item">[✓] Web Security</div>
+                        <div class="highlight-item">[✓] Risk Awareness</div>
+                        <div class="highlight-item">[✓] Secure Development</div>
+                        <div class="highlight-item">[✓] Security Research</div>
+                    </div>
+                </div>
+                <div class="about-visual glass-card reveal">
+                    <h3 class="mono" style="color: var(--cyan-accent); margin-bottom: 1rem;">Core Philosophy</h3>
+                    <p>
+                        "Security is not a single product or feature, but an ongoing process of risk awareness, proactive defense, and architectural discipline."
+                    </p>
+                    <div style="margin-top: 1.5rem; font-family: var(--font-mono); font-size: 0.85rem; color: var(--electric-green);">
+                        > Location: Karachi, Pakistan<br>
+                        > Focus: Defense & Awareness<br>
+                        > Status: Continuous Security Analysis
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="section-padding" id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Technical Competencies</span>
+                <h2 class="section-title">Security Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="glass-card skill-card reveal">
+                    <span class="skill-icon">🌐</span>
+                    <h3>Web Security</h3>
+                    <p>Understanding common web application security risks and defense principles.</p>
+                </div>
+                <div class="glass-card skill-card reveal">
+                    <span class="skill-icon">📡</span>
+                    <h3>Network Security</h3>
+                    <p>Learning principles of securing connected systems and network infrastructure.</p>
+                </div>
+                <div class="glass-card skill-card reveal">
+                    <span class="skill-icon">🔍</span>
+                    <h3>Vulnerability Assessment</h3>
+                    <p>Identifying potential weaknesses and understanding their potential impact.</p>
+                </div>
+                <div class="glass-card skill-card reveal">
+                    <span class="skill-icon">🛡️</span>
+                    <h3>Security Awareness</h3>
+                    <p>Promoting safer digital habits and security-conscious operational practices.</p>
+                </div>
+                <div class="glass-card skill-card reveal">
+                    <span class="skill-icon">💻</span>
+                    <h3>Secure Development</h3>
+                    <p>Understanding security considerations throughout the software development lifecycle.</p>
+                </div>
+                <div class="glass-card skill-card reveal">
+                    <span class="skill-icon">⚠️</span>
+                    <h3>Threat Awareness</h3>
+                    <p>Understanding common cybersecurity threats and real-world attack patterns.</p>
+                </div>
+                <div class="glass-card skill-card reveal">
+                    <span class="skill-icon">🔑</span>
+                    <h3>Authentication Security</h3>
+                    <p>Understanding secure authentication, authorization, and access-control concepts.</p>
+                </div>
+                <div class="glass-card skill-card reveal">
+                    <span class="skill-icon">🧩</span>
+                    <h3>Security Fundamentals</h3>
+                    <p>Understanding core cybersecurity principles, confidentiality, and data integrity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES / FOCUS AREAS SECTION -->
+    <section class="section-padding" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Focus Areas</span>
+                <h2 class="section-title">Cybersecurity Areas</h2>
+            </div>
+            <div class="services-grid">
+                <div class="glass-card service-card reveal">
+                    <h3>Web Security Review</h3>
+                    <p>Analyzing web applications against standard risk frameworks to highlight defensive design improvements.</p>
+                </div>
+                <div class="glass-card service-card reveal">
+                    <h3>Vulnerability Assessment</h3>
+                    <p>Systematic evaluation of configurations to discover potential exposure points across systems.</p>
+                </div>
+                <div class="glass-card service-card reveal">
+                    <h3>Security Awareness</h3>
+                    <p>Structuring educational concepts to train teams on recognizing phishing and social engineering risks.</p>
+                </div>
+                <div class="glass-card service-card reveal">
+                    <h3>Basic Security Consultation</h3>
+                    <p>Providing guidance on foundational security controls, password hygiene, and access policies.</p>
+                </div>
+                <div class="glass-card service-card reveal">
+                    <h3>Secure Development Guidance</h3>
+                    <p>Reviewing software implementation concepts to recommend defense-in-depth programming practices.</p>
+                </div>
+                <div class="glass-card service-card reveal">
+                    <h3>Risk Assessment</h3>
+                    <p>Evaluating potential threat vectors to assist organizations in prioritizing security upgrades.</p>
+                </div>
+                <div class="glass-card service-card reveal">
+                    <h3>Authentication & Access Review</h3>
+                    <p>Assessing user verification workflows, Multi-Factor Authentication setups, and role-based controls.</p>
+                </div>
+                <div class="glass-card service-card reveal">
+                    <h3>Security Best Practices</h3>
+                    <p>Defining robust baseline security rules for personal setups and modern digital environments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECURITY PROCESS -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Methodology</span>
+                <h2 class="section-title">How Security Thinking Works</h2>
+            </div>
+            <div class="process-timeline">
+                <div class="process-node reveal">
+                    <div class="node-number">01</div>
+                    <h3>IDENTIFY</h3>
+                    <p>Understand the system and potential risks.</p>
+                </div>
+                <div class="process-node reveal">
+                    <div class="node-number">02</div>
+                    <h3>ASSESS</h3>
+                    <p>Analyze weaknesses and their possible impact.</p>
+                </div>
+                <div class="process-node reveal">
+                    <div class="node-number">03</div>
+                    <h3>PRIORITIZE</h3>
+                    <p>Focus on the most important security concerns.</p>
+                </div>
+                <div class="process-node reveal">
+                    <div class="node-number">04</div>
+                    <h3>IMPROVE</h3>
+                    <p>Apply appropriate security practices and improvements.</p>
+                </div>
+                <div class="process-node reveal">
+                    <div class="node-number">05</div>
+                    <h3>MONITOR</h3>
+                    <p>Continue reviewing and improving security posture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE THREAT LAB -->
+    <section class="section-padding" id="lab">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Educational Sandbox</span>
+                <h2 class="section-title">Security Threat Lab</h2>
+            </div>
+            <div class="threat-lab-grid reveal">
+                <div class="threat-selector">
+                    <button class="threat-btn active" data-threat="phishing">01. Phishing</button>
+                    <button class="threat-btn" data-threat="passwords">02. Weak Passwords</button>
+                    <button class="threat-btn" data-threat="malware">03. Malware</button>
+                    <button class="threat-btn" data-threat="data">04. Data Exposure</button>
+                    <button class="threat-btn" data-threat="access">05. Unauthorized Access</button>
+                    <button class="threat-btn" data-threat="social">06. Social Engineering</button>
+                </div>
+                <div class="glass-card threat-display" id="threat-display-panel">
+                    <!-- Dynamic Threat Lab Content -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECURITY CHECKLIST -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Self-Assessment Tool</span>
+                <h2 class="section-title">Quick Security Check</h2>
+            </div>
+            <div class="checklist-container glass-card reveal">
+                <div class="checklist-status" id="checklist-counter">Security Checklist: 0 / 6</div>
+                <div class="checklist-progress-bar">
+                    <div class="checklist-progress-fill" id="checklist-progress"></div>
+                </div>
+                <div class="checklist-items">
+                    <label class="checklist-item">
+                        <input type="checkbox" class="chk-box">
+                        <span>Strong Passwords</span>
+                    </label>
+                    <label class="checklist-item">
+                        <input type="checkbox" class="chk-box">
+                        <span>Multi-Factor Authentication</span>
+                    </label>
+                    <label class="checklist-item">
+                        <input type="checkbox" class="chk-box">
+                        <span>Updated Software</span>
+                    </label>
+                    <label class="checklist-item">
+                        <input type="checkbox" class="chk-box">
+                        <span>Secure Backups</span>
+                    </label>
+                    <label class="checklist-item">
+                        <input type="checkbox" class="chk-box">
+                        <span>Access Control</span>
+                    </label>
+                    <label class="checklist-item">
+                        <input type="checkbox" class="chk-box">
+                        <span>Security Awareness</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECURITY PROJECTS -->
+    <section class="section-padding" id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Conceptual Work</span>
+                <h2 class="section-title">Security Projects & Concepts</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="glass-card reveal">
+                    <span class="project-badge">Security Concept</span>
+                    <h3>Web Security Assessment</h3>
+                    <p>Conceptual project showing how a website can be reviewed for common security weaknesses such as XSS and CSRF exposure.</p>
+                </div>
+                <div class="glass-card reveal">
+                    <span class="project-badge">Security Concept</span>
+                    <h3>Security Dashboard</h3>
+                    <p>Conceptual dashboard mockup for monitoring key security indicators, access logs, and system integrity states.</p>
+                </div>
+                <div class="glass-card reveal">
+                    <span class="project-badge">Security Concept</span>
+                    <h3>Phishing Awareness</h3>
+                    <p>Educational concept explaining how deceptive emails and phishing attempts can be recognized and reported effectively.</p>
+                </div>
+                <div class="glass-card reveal">
+                    <span class="project-badge">Security Concept</span>
+                    <h3>Secure Login System</h3>
+                    <p>Conceptual authentication workflow illustrating secure password hashing, rate limiting, and session tokens.</p>
+                </div>
+                <div class="glass-card reveal">
+                    <span class="project-badge">Security Concept</span>
+                    <h3>Vulnerability Report</h3>
+                    <p>Conceptual example illustrating how technical security findings can be systematically organized and documented.</p>
+                </div>
+                <div class="glass-card reveal">
+                    <span class="project-badge">Security Concept</span>
+                    <h3>Security Monitoring</h3>
+                    <p>Conceptual interface design exploring real-time event log visualization and operational security triggers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TERMINAL SECTION -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Interactive Console</span>
+                <h2 class="section-title">Inside The Security Mindset</h2>
+            </div>
+            <div class="interactive-terminal reveal">
+                <div class="terminal-actions">
+                    <button class="cmd-btn" data-cmd="whoami">whoami</button>
+                    <button class="cmd-btn" data-cmd="skills">skills</button>
+                    <button class="cmd-btn" data-cmd="security">security</button>
+                    <button class="cmd-btn" data-cmd="projects">projects</button>
+                    <button class="cmd-btn" data-cmd="contact">contact</button>
+                    <button class="cmd-btn reset" id="cmd-reset">clear</button>
+                </div>
+                <div class="terminal-console" id="terminal-console">
+                    <div class="console-line">
+                        <span class="console-prompt">zayan@cybersecurity:~$</span> Click buttons above to execute terminal commands...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECURITY KNOWLEDGE & CIA TRIAD -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Core Pillars</span>
+                <h2 class="section-title">Security Fundamentals</h2>
+            </div>
+            <div class="knowledge-container">
+                <div class="cia-triad reveal">
+                    <svg class="cia-triangle" viewBox="0 0 100 100">
+                        <polygon points="50,15 15,80 85,80" fill="none" stroke="#00f0ff" stroke-width="1.5" stroke-dasharray="3,3" />
+                    </svg>
+                    <div class="cia-node node-c">Confidentiality</div>
+                    <div class="cia-node node-i">Integrity</div>
+                    <div class="cia-node node-a">Availability</div>
+                </div>
+                
+                <div class="knowledge-accordion reveal">
+                    <div class="k-card">
+                        <div class="k-header">01. Confidentiality <span>+</span></div>
+                        <div class="k-body">Ensuring that sensitive information is accessible only to authorized individuals and protected from disclosure.</div>
+                    </div>
+                    <div class="k-card">
+                        <div class="k-header">02. Integrity <span>+</span></div>
+                        <div class="k-body">Maintaining the accuracy, completeness, and uncorrupted state of data across storage and transmission.</div>
+                    </div>
+                    <div class="k-card">
+                        <div class="k-header">03. Availability <span>+</span></div>
+                        <div class="k-body">Ensuring that systems, networks, and applications remain operational and accessible when required by authorized users.</div>
+                    </div>
+                    <div class="k-card">
+                        <div class="k-header">04. Authentication <span>+</span></div>
+                        <div class="k-body">Verifying the identity of a user, system, or application before granting digital access.</div>
+                    </div>
+                    <div class="k-card">
+                        <div class="k-header">05. Authorization <span>+</span></div>
+                        <div class="k-body">Determining specific access rights, permissions, and privileges for authenticated entities.</div>
+                    </div>
+                    <div class="k-card">
+                        <div class="k-header">06. Encryption <span>+</span></div>
+                        <div class="k-body">Encoding plain data into ciphertext using cryptographic algorithms to ensure private transmission.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CYBERSECURITY GALLERY -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Visual Context</span>
+                <h2 class="section-title">Cybersecurity Gallery</h2>
+            </div>
+            <div class="gallery-grid reveal">
+                <div class="gallery-item" data-img="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="Cybersecurity Monitoring Center">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Security Operations Center</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-img="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Digital Code Analysis">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Code Audit Environment</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-img="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" alt="Server Network Rack">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Network Infrastructure</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-img="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Matrix Code Interface">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Data Protection Protocol</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-btn lightbox-close" id="lightbox-close">&times;</button>
+        <button class="lightbox-btn lightbox-prev" id="lightbox-prev">&#10094;</button>
+        <button class="lightbox-btn lightbox-next" id="lightbox-next">&#10095;</button>
+        <img src="" alt="Gallery Full view" class="lightbox-img" id="lightbox-img">
+    </div>
+
+    <!-- FAQ SECTION -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Common Inquiries</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container reveal">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What areas of cybersecurity does Zayan focus on?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Zayan focuses primarily on web security awareness, vulnerability assessment fundamentals, network security principles, and secure software development guidance.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What is vulnerability assessment?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Vulnerability assessment is the systematic process of identifying, analyzing, and prioritizing potential security weaknesses in software, applications, or network configurations.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Why is web security important?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Web applications are frequently exposed to internet-wide threats. Robust web security safeguards user data, maintains business continuity, and prevents unauthorized system access.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What is security awareness?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Security awareness involves educating users and employees on digital risks, common threats like phishing, proper credential management, and safe computer habits.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can cybersecurity practices help protect websites?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Yes, applying secure coding practices, configuring access controls, maintaining software updates, and evaluating potential risks significantly improve website defense.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How can I contact Zayan Cybersecurity?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        You can get in touch directly via Direct Call (03192032839), WhatsApp (+92 319 2032839), or Email (zayancyber839@gmail.com).
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="contact-cta reveal">
+                <h2 style="font-size: 2.25rem; margin-bottom: 1rem;">Let’s Make Security A Priority.</h2>
+                <p style="max-width: 600px; margin: 0 auto 2rem auto;">
+                    Have a cybersecurity question, project or security requirement? Get in touch and start the conversation.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="tel:+923192032839" class="btn btn-primary">Call Now</a>
+                    <a href="https://wa.me/923192032839" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">WhatsApp</a>
+                    <a href="mailto:zayancyber839@gmail.com" class="btn btn-primary">Send Email</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION & FORM -->
+    <section class="section-padding" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Get In Touch</span>
+                <h2 class="section-title">Contact Zayan</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="glass-card contact-info-card reveal">
+                    <h3 style="color: var(--electric-green); font-family: var(--font-mono);">ZAYAN CYBERSECURITY</h3>
+                    <div class="info-group">
+                        <h4>Location</h4>
+                        <p>Karachi, Pakistan</p>
+                    </div>
+                    <div class="info-group">
+                        <h4>Phone</h4>
+                        <p><a href="tel:+923192032839">03192032839</a></p>
+                    </div>
+                    <div class="info-group">
+                        <h4>WhatsApp</h4>
+                        <p><a href="https://wa.me/923192032839" target="_blank" rel="noopener noreferrer">+92 319 2032839</a></p>
+                    </div>
+                    <div class="info-group">
+                        <h4>Email</h4>
+                        <p><a href="mailto:zayancyber839@gmail.com">zayancyber839@gmail.com</a></p>
+                    </div>
+                </div>
+                
+                <div class="glass-card reveal">
+                    <form class="contact-form" id="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" required placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required placeholder="your.email@domain.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Your Contact Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="area">Security Area</label>
+                            <select id="area" class="form-control">
+                                <option value="Web Security">Web Security</option>
+                                <option value="Vulnerability Assessment">Vulnerability Assessment</option>
+                                <option value="Security Awareness">Security Awareness</option>
+                                <option value="Secure Development">Secure Development</option>
+                                <option value="Security Consultation">Security Consultation</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required placeholder="Write your inquiry or message here..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+                        <div class="form-message" id="form-status"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#home" class="logo" style="margin-bottom: 1rem;">
+                        <span class="logo-main">ZAYAN</span>
+                        <span class="logo-sub">CYBERSECURITY</span>
+                    </a>
+                    <p style="font-size: 0.9rem;">
+                        “Secure Systems. Smarter Security.”
+                    </p>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--text-muted);">
+                        Cybersecurity professional portfolio dedicated to defensive awareness, risk assessment, and application security concepts in Karachi, Pakistan.
+                    </p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>QUICK LINKS</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#lab">Security Lab</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>SECURITY AREAS</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Web Security</a></li>
+                        <li><a href="#services">Vulnerability Assessment</a></li>
+                        <li><a href="#services">Security Awareness</a></li>
+                        <li><a href="#services">Secure Development</a></li>
+                        <li><a href="#services">Risk Assessment</a></li>
+                        <li><a href="#services">Authentication Security</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>CONTACT</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Karachi, Pakistan</p>
+                    <ul class="footer-links" style="margin-bottom: 1rem;">
+                        <li>Phone: <a href="tel:+923192032839">03192032839</a></li>
+                        <li>WhatsApp: <a href="https://wa.me/923192032839" target="_blank" rel="noopener noreferrer">+92 319 2032839</a></li>
+                        <li>Email: <a href="mailto:zayancyber839@gmail.com">zayancyber839@gmail.com</a></li>
+                    </ul>
+                    <div class="footer-cta-box">
+                        <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--cyan-accent); margin-bottom: 0.5rem;">Have a Security Question?</p>
+                        <a href="https://wa.me/923192032839" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.75rem; width: 100%;">WhatsApp Zayan</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                &copy; <span id="current-year"></span> Zayan Cybersecurity. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to Top">▲</button>
+
+    <!-- VANILLA JAVASCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            // 1. Dynamic Year
+            document.getElementById("current-year").textContent = new Date().getFullYear();
+
+            // 2. Navbar Scroll Effect & Back to Top visibility
+            const navbar = document.getElementById("navbar");
+            const backToTop = document.getElementById("backToTop");
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add("scrolled");
+                } else {
+                    navbar.classList.remove("scrolled");
+                }
+
+                if (window.scrollY > 400) {
+                    backToTop.classList.add("visible");
+                } else {
+                    backToTop.classList.remove("visible");
+                }
+
+                // Active Navigation Tracking
+                const sections = document.querySelectorAll("section[id]");
+                const scrollY = window.pageYOffset;
+
+                sections.forEach(current => {
+                    const sectionHeight = current.offsetHeight;
+                    const sectionTop = current.offsetTop - 100;
+                    const sectionId = current.getAttribute("id");
+                    const navLink = document.querySelector(`.nav-links a[href*=${sectionId}]`);
+
+                    if (navLink) {
+                        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                            navLink.classList.add("active");
+                        } else {
+                            navLink.classList.remove("active");
+                        }
+                    }
+                });
+            });
+
+            // Back to Top Click
+            backToTop.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+
+            // 3. Mobile Hamburger Menu
+            const hamburger = document.getElementById("hamburger");
+            const navLinks = document.getElementById("nav-links");
+
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("active");
+                navLinks.classList.toggle("active");
+            });
+
+            // Close mobile menu on click
+            document.querySelectorAll(".nav-link").forEach(link => {
+                link.addEventListener("click", () => {
+                    hamburger.classList.remove("active");
+                    navLinks.classList.remove("active");
+                });
+            });
+
+            // 4. Scroll Reveal Animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+            // 5. Hero Terminal Animation
+            const heroTerminalText = document.getElementById("hero-terminal-text");
+            const heroLines = [
+                "> initializing security profile...",
+                "> checking digital environment...",
+                "> security mindset: ACTIVE",
+                "> status: READY"
+            ];
+            
+            let lineIdx = 0;
+            let charIdx = 0;
+
+            function typeHeroTerminal() {
+                if (lineIdx < heroLines.length) {
+                    const currentLine = heroLines[lineIdx];
+                    if (charIdx < currentLine.length) {
+                        heroTerminalText.innerHTML = heroLines.slice(0, lineIdx).join("<br>") + 
+                            (lineIdx > 0 ? "<br>" : "") + 
+                            currentLine.substring(0, charIdx + 1) + 
+                            '<span class="cursor"></span>';
+                        charIdx++;
+                        setTimeout(typeHeroTerminal, 40);
+                    } else {
+                        lineIdx++;
+                        charIdx = 0;
+                        setTimeout(typeHeroTerminal, 400);
+                    }
+                } else {
+                    heroTerminalText.innerHTML = heroLines.join("<br>") + '<br><span class="cursor"></span>';
+                }
+            }
+            typeHeroTerminal();
+
+            // 6. Interactive Threat Lab
+            const threatData = {
+                phishing: {
+                    title: "Phishing Attacks",
+                    risk: "High Risk — Credential Theft",
+                    protection: "Verify sender domains, enable MFA, implement email security filters, and conduct awareness drills.",
+                    desc: "Deceptive techniques using spoofed emails or messages to trick users into handing over sensitive login credentials."
+                },
+                passwords: {
+                    title: "Weak Passwords",
+                    risk: "Critical Risk — Brute Force Exposure",
+                    protection: "Enforce long passphrases, utilize dedicated password managers, and restrict credential re-use across applications.",
+                    desc: "Easily guessable credentials or reused passwords that expose administrative interfaces to automated guessing attacks."
+                },
+                malware: {
+                    title: "Malicious Software",
+                    risk: "Critical Risk — Data Loss / Ransomware",
+                    protection: "Keep operating systems updated, enforce strict endpoint protection, and restrict untrusted execution permissions.",
+                    desc: "Software designed to disrupt, damage, or gain unauthorized access to computer systems and network resources."
+                },
+                data: {
+                    title: "Data Exposure",
+                    risk: "High Risk — Confidentiality Breach",
+                    protection: "Apply strong encryption at rest and in transit (TLS 1.3), restrict database visibility, and redact sensitive logs.",
+                    desc: "Accidental or malicious leak of sensitive records due to unencrypted communications or misconfigured cloud storage."
+                },
+                access: {
+                    title: "Unauthorized Access",
+                    risk: "High Risk — System Compromise",
+                    protection: "Enforce strict Least Privilege principle, execute periodic access audits, and implement Multi-Factor Authentication.",
+                    desc: "Gaining control of digital assets or internal network services without proper authorization permissions."
+                },
+                social: {
+                    title: "Social Engineering",
+                    risk: "Medium to High Risk — Human Exploitation",
+                    protection: "Establish verification protocols for financial/data requests and foster a culture of continuous security awareness.",
+                    desc: "Manipulating individuals into voluntarily handing over confidential access codes or executing unauthorized operations."
+                }
+            };
+
+            const threatButtons = document.querySelectorAll(".threat-btn");
+            const threatDisplayPanel = document.getElementById("threat-display-panel");
+
+            function updateThreatDisplay(key) {
+                const data = threatData[key];
+                threatDisplayPanel.innerHTML = `
+                    <span class="threat-tag">${data.risk}</span>
+                    <h3 style="color: var(--electric-green); font-family: var(--font-mono); font-size: 1.3rem; margin-bottom: 0.5rem;">${data.title}</h3>
+                    <p style="font-size: 0.95rem;">${data.desc}</p>
+                    <div class="threat-box">
+                        <h4>COMMON RISK</h4>
+                        <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">${data.risk}</p>
+                        <h4>BASIC PROTECTION</h4>
+                        <p style="font-size: 0.85rem;">${data.protection}</p>
+                    </div>
+                `;
+            }
+
+            threatButtons.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    threatButtons.forEach(b => b.classList.remove("active"));
+                    btn.classList.add("active");
+                    updateThreatDisplay(btn.getAttribute("data-threat"));
+                });
+            });
+            updateThreatDisplay("phishing");
+
+            // 7. Security Checklist Counter
+            const checkboxes = document.querySelectorAll(".chk-box");
+            const checklistCounter = document.getElementById("checklist-counter");
+            const checklistProgress = document.getElementById("checklist-progress");
+
+            function updateChecklist() {
+                let checkedCount = 0;
+                checkboxes.forEach(chk => {
+                    if (chk.checked) checkedCount++;
+                });
+                checklistCounter.textContent = `Security Checklist: ${checkedCount} / 6`;
+                checklistProgress.style.width = `${(checkedCount / 6) * 100}%`;
+            }
+
+            checkboxes.forEach(chk => chk.addEventListener("change", updateChecklist));
+            updateChecklist();
+
+            // 8. Interactive Terminal Console
+            const terminalConsole = document.getElementById("terminal-console");
+            const cmdButtons = document.querySelectorAll(".cmd-btn[data-cmd]");
+            const cmdReset = document.getElementById("cmd-reset");
+
+            const cmdResponses = {
+                whoami: "Zayan Cybersecurity — Cybersecurity focused professional based in Karachi, Pakistan.",
+                skills: "Core Competencies: Web Security, Network Security Fundamentals, Vulnerability Assessment, Secure Development Concepts.",
+                security: "Security Mindset: Proactive risk identification, continuous monitoring, and defense-in-depth security principles.",
+                projects: "Conceptual Work: Web Security Assessment, Security Dashboard, Phishing Awareness, Secure Login Systems.",
+                contact: "Direct Line: 03192032839 | Email: zayancyber839@gmail.com | Location: Karachi, Pakistan"
+            };
+
+            cmdButtons.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const cmd = btn.getAttribute("data-cmd");
+                    const response = cmdResponses[cmd];
+                    
+                    const cmdLine = document.createElement("div");
+                    cmdLine.className = "console-line";
+                    cmdLine.innerHTML = `<span class="console-prompt">zayan@cybersecurity:~$</span> ${cmd}`;
+                    
+                    const outputLine = document.createElement("div");
+                    outputLine.className = "console-output";
+                    outputLine.textContent = response;
+                    
+                    terminalConsole.appendChild(cmdLine);
+                    terminalConsole.appendChild(outputLine);
+                    terminalConsole.scrollTop = terminalConsole.scrollHeight;
+                });
+            });
+
+            cmdReset.addEventListener("click", () => {
+                terminalConsole.innerHTML = `
+                    <div class="console-line">
+                        <span class="console-prompt">zayan@cybersecurity:~$</span> Terminal cleared. Click buttons to issue commands...
+                    </div>
+                `;
+            });
+
+            // 9. Knowledge Cards Accordion
+            const kCards = document.querySelectorAll(".k-card");
+            kCards.forEach(card => {
+                card.addEventListener("click", () => {
+                    card.classList.toggle("open");
+                });
+            });
+
+            // 10. Lightbox Gallery
+            const galleryItems = document.querySelectorAll(".gallery-item");
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const lightboxClose = document.getElementById("lightbox-close");
+            const lightboxPrev = document.getElementById("lightbox-prev");
+            const lightboxNext = document.getElementById("lightbox-next");
+
+            let currentImgIdx = 0;
+            const imagesList = Array.from(galleryItems).map(item => item.getAttribute("data-img"));
+
+            function openLightbox(index) {
+                currentImgIdx = index;
+                lightboxImg.src = imagesList[currentImgIdx];
+                lightbox.classList.add("active");
+            }
+
+            galleryItems.forEach((item, index) => {
+                item.addEventListener("click", () => openLightbox(index));
+            });
+
+            lightboxClose.addEventListener("click", () => lightbox.classList.remove("active"));
+
+            lightboxNext.addEventListener("click", () => {
+                currentImgIdx = (currentImgIdx + 1) % imagesList.length;
+                lightboxImg.src = imagesList[currentImgIdx];
+            });
+
+            lightboxPrev.addEventListener("click", () => {
+                currentImgIdx = (currentImgIdx - 1 + imagesList.length) % imagesList.length;
+                lightboxImg.src = imagesList[currentImgIdx];
+            });
+
+            // Keyboard navigation for Lightbox
+            document.addEventListener("keydown", (e) => {
+                if (!lightbox.classList.contains("active")) return;
+                if (e.key === "Escape") lightbox.classList.remove("active");
+                if (e.key === "ArrowRight") lightboxNext.click();
+                if (e.key === "ArrowLeft") lightboxPrev.click();
+            });
+
+            // 11. FAQ Accordion
+            const faqItems = document.querySelectorAll(".faq-item");
+            faqItems.forEach(item => {
+                const btn = item.querySelector(".faq-question");
+                btn.addEventListener("click", () => {
+                    const isOpen = item.classList.contains("active");
+                    faqItems.forEach(i => i.classList.remove("active"));
+                    if (!isOpen) item.classList.add("active");
+                });
+            });
+
+            // 12. Contact Form Validation (No Fake Submissions)
+            const contactForm = document.getElementById("contact-form");
+            const formStatus = document.getElementById("form-status");
+
+            contactForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById("name").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const message = document.getElementById("message").value.trim();
+
+                if (!name || !email || !message) {
+                    formStatus.className = "form-message";
+                    formStatus.style.display = "block";
+                    formStatus.style.background = "rgba(255, 71, 87, 0.15)";
+                    formStatus.style.border = "1px solid var(--alert-red)";
+                    formStatus.style.color = "var(--alert-red)";
+                    formStatus.textContent = "[!] Please complete all required fields (Name, Email, Message).";
+                    return;
+                }
+
+                // Front-end validation success demonstration
+                formStatus.className = "form-message success";
+                formStatus.textContent = "[✓] Validation complete. Thank you for your inquiry, Zayan will get back to you shortly.";
+                contactForm.reset();
+            });
+
+        });
+    </script>
+</body>
+</html>
